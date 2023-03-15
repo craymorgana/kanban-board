@@ -45,6 +45,22 @@
 	opacity: 50%;
 }
 
+.task {
+	border: solid #2f3e46;
+	padding: 10px;
+	margin: 5px;
+	border-radius: 5%;
+}
+
+.card-title {
+	background-color: #33595d;
+	padding: 5px;
+}
+
+.items {
+	border-radius: 5px;
+}
+
 label {
 	text-align: left;
 	padding: 0.25rem 0;

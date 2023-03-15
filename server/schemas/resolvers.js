@@ -100,6 +100,9 @@ const resolvers = {
 			const token = signToken(user);
 			return { token, user };
 		},
+		removeProject: async (parent, { projectId }, { user }) => {
+			return Project.findOneAndDelete({ _id: projectId })
+		}
 	},
 };
 

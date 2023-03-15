@@ -1,16 +1,16 @@
 /** @format */
 
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { useMutation, useQuery } from '@apollo/client';
-import { ADD_PROJECT } from '../utils/mutations';
-import { QUERY_PROJECTS, QUERY_USER, QUERY_ME } from '../utils/queries';
-import ProjectList from '../components/ProjectList';
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
+import { useMutation, useQuery } from "@apollo/client";
+import { ADD_PROJECT } from "../utils/mutations";
+import { QUERY_PROJECTS, QUERY_USER, QUERY_ME } from "../utils/queries";
+import ProjectList from "../components/ProjectList";
 
-import Auth from '../utils/auth';
+import Auth from "../utils/auth";
 
 const Dashboard = () => {
-	const [projectTitle, setProjectTitle] = useState('');
+	const [projectTitle, setProjectTitle] = useState("");
 	const { username: userParam } = useParams();
 
 	const [addProject] = useMutation(ADD_PROJECT, {
@@ -45,9 +45,9 @@ const Dashboard = () => {
 
 	if (!Auth.loggedIn()) {
 		return (
-			<h4 className='unauthorized'>
-				You need to be logged in to see this. Use the navigation links above to sign
-				up or log in!
+			<h4 className="unauthorized">
+				You need to be logged in to see this. Use the navigation links above to
+				sign up or log in!
 			</h4>
 		);
 	}
@@ -62,7 +62,7 @@ const Dashboard = () => {
 					userId: Auth.getProfile().data.username,
 				},
 			});
-			setProjectTitle('');
+			setProjectTitle("");
 		} catch (err) {
 			console.error(err);
 		}
@@ -74,9 +74,9 @@ const Dashboard = () => {
 
 	return (
 		<div>
-			<div className='d-flex container dashboard-container'>
-				<h2 className='dashboard-title'>Dashboard</h2>
-				<div className=''>
+			<div className="d-flex container dashboard-container">
+				<h2 className="dashboard-title">Dashboard</h2>
+				<div className="">
 					<ProjectList
 						projects={user.projects}
 						projectTitle={`${user.username}'s projects...`}
@@ -88,12 +88,12 @@ const Dashboard = () => {
 			<div>
 				<form onSubmit={handleAddProject}>
 					<input
-						type='text'
-						placeholder='New project title'
+						type="text"
+						placeholder="New project title"
 						value={projectTitle}
 						onChange={handleProjectTitleChange}
 					/>
-					<button className='btn btn-light m-2' type='submit'>
+					<button className="btn btn-light m-2" type="submit">
 						Add project
 					</button>
 				</form>

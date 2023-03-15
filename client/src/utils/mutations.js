@@ -53,3 +53,11 @@ export const ADD_TASK = gql`
 		}
 	}
 `;
+
+export const REMOVE_PROJECT = gql`
+	mutation removeProject($projectId: ID!) {
+		removeProject(projectId: $projectId) {
+			_id
+		}
+	}
+`;
